@@ -1,0 +1,26 @@
+{
+  "name": "gekkocore",
+  "version": "1.1.2",
+  "description": "Advanced frontend tooling 🚀",
+  "main": "./playground/app.js",
+  "bin": {
+    "generate": "./playground/app.js"
+  },
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "gekko",
+    "gekkocore",
+    "web template",
+    "website template"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^5.2.0",
+    "inquirer": "^9.1.5",
+    "nanospinner": "^1.1.0"
+  }
+}

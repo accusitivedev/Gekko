@@ -1,0 +1,1 @@
+console.log('🚀 Thanks for using Gekko!')
