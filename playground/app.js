@@ -37,28 +37,48 @@ inquirer.prompt(SETUP)
         const projectName = answers['po0t787'];
         const projectChoice = answers['po0t789'];
         const templatePath = `${__dirname}/lib/${projectChoice}`;
-        
-        async function Loading() {
+
+        if (fs.existsSync(projectName)) {
+            async function Loading() {
+                console.clear()
+                const spinner = createSpinner(chalk.bgRed('|' + chalk.bgRedBright.bold(' Gekko ') + '|') + ' Creating ' + chalk.bold(`${projectName}`) + ' ...').start();
+            }
+
             console.clear()
-            const spinner = createSpinner(chalk.bgRed('|' + chalk.bgRedBright.bold(' Gekko ') + '|') + ' Creating ' + chalk.bold(`${projectName}`) + ' ...').start();
+            Loading()
+            await sleep()
+            console.clear()
+
+            console.log(chalk.redBright('⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯'))
+            console.log(chalk.redBright.bold('\n  Error! ') + chalk.white(`Folder with the name ${chalk.bgGrey.redBright(' ' + projectName + ' ')}`) + chalk.white(' is already exist!\n'))
+            console.log(`\n\n ${chalk.blackBright('                     Accusitive © 2023')}`)
+            console.log(`${chalk.blackBright(`                    v1.0.5 | ${chalk.bgGrey.blueBright(' Build67b09c7 ')}`)}`)
+            console.log(chalk.redBright('⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯'))
+            process.exit()
+        } else {
+            async function Loading() {
+                console.clear()
+                const spinner = createSpinner(chalk.bgRed('|' + chalk.bgRedBright.bold(' Gekko ') + '|') + ' Creating ' + chalk.bold(`${projectName}`) + ' ...').start();
+            }
+
+            console.clear()
+            Loading()
+            await sleep()
+            console.clear()
+
+            fs.mkdirSync(`${CURR_DIR}/${projectName}`);
+            createDirectoryContents(templatePath, projectName);
+
+            console.clear()
+            console.log(chalk.blueBright('⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯'))
+            console.log(chalk.blueBright.bold('\n  Success! ') + chalk.white(`Created ${chalk.bgGrey.blueBright(' ' + projectName + ' ')}`) + chalk.gray('!\n'))
+            console.log(chalk.white("  Now, let's access our project!") + chalk.white('\n  1. ' + chalk.white(`cd ${chalk.blueBright.bold(projectName)}`)))
+            console.log(`\n\n ${chalk.blackBright('       Accusitive © 2023')}`)
+            console.log(`${chalk.blackBright(`     v1.0.5 | ${chalk.bgGrey.blueBright(' Build67b09c7 ')}`)}`)
+            console.log(chalk.blueBright('⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯'))
+            process.exit()
         }
 
-        console.clear()
-        Loading()
-        await sleep()
-        console.clear()
-
-        fs.mkdirSync(`${CURR_DIR}/${projectName}`);
-        createDirectoryContents(templatePath, projectName);
-
-        console.clear()
-        console.log(chalk.blueBright('⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯'))
-        console.log(chalk.blueBright.bold('\n  Success! ') + chalk.white(`Created ${chalk.bgGrey.blueBright(' ' + projectName + ' ')}`) + chalk.gray('!\n'))
-        console.log(chalk.white("  Now, let's access our project!") + chalk.white('\n  1. ' + chalk.white(`cd ${chalk.blueBright.bold(projectName)}`)))
-        console.log(`\n\n ${chalk.blackBright('       Accusitive © 2023')}`)
-        console.log(`${chalk.blackBright(`     v1.0.5 | ${chalk.bgGrey.blueBright(' Build67b09c7 ')}`)}`)
-        console.log(chalk.blueBright('⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯'))
-        process.exit()
     });
 
 function createDirectoryContents(templatePath, newProjectPath) {
