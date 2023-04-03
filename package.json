@@ -1,6 +1,6 @@
 {
   "name": "gekkocore",
-  "version": "1.5.3",
+  "version": "2.0.2",
   "description": "Advanced frontend tooling 🚀",
   "main": "./playground/app.js",
   "bin": {
@@ -21,7 +21,7 @@
     "url": "https://github.com/accusitivedev/Gekko"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "chalk": "^5.2.0",
     "inquirer": "^9.1.5",
