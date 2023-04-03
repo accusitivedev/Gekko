@@ -1,10 +1,10 @@
 {
   "name": "gekkocore",
-  "version": "1.1.2",
+  "version": "1.5.3",
   "description": "Advanced frontend tooling 🚀",
   "main": "./playground/app.js",
   "bin": {
-    "generate": "./playground/app.js"
+    "gekkocore": "./playground/app.js"
   },
   "type": "module",
   "scripts": {
@@ -16,6 +16,10 @@
     "web template",
     "website template"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/accusitivedev/Gekko"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
